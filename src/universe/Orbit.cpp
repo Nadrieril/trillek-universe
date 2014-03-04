@@ -47,9 +47,6 @@ Position3D Orbit::getSatellitePosition(long time) const {
 }
 
 double Orbit::solveForE(double M) const {
-//    return M;
-
-//    /*
 	double e2, e3, cM;
 	double E, dE;
 	double mindE = 1 / a;
@@ -74,6 +71,5 @@ double Orbit::solveForE(double M) const {
 		E = E - dE;
 	}
 	return E;
-	//*/
 }
 
