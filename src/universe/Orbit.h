@@ -17,16 +17,16 @@ class Orbit;
 
 
 struct Position3D {
-	long x;
-	long y;
-	long z;
+	long long x;
+	long long y;
+	long long z;
 };
 
 
 class Orbit {
 public:
     Orbit();
-    Orbit(SpaceBody* center, SpaceBody* satellite, float e, long a, float M0,
+    Orbit(SpaceBody* center, SpaceBody* satellite, float e, long long a, float M0,
             float i, float w, float W);
     virtual ~Orbit();
 
@@ -50,7 +50,7 @@ protected:
 
 	SpaceBody *center;
 	float e;
-	long a;
+	long long a;
 	double n;
 	float M0;
 	float i;

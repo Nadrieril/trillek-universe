@@ -11,9 +11,10 @@ SpaceBody::SpaceBody() {
     mass=0;
 }
 
-SpaceBody::SpaceBody(double mass, SpaceBody *center) {
-    this->mass=mass;
-    orbit=new Orbit(center, this, 0.5, 200, 0, 0, 0, 0);
+SpaceBody::SpaceBody(double mass, SpaceBody *center, float e, long long a, float M0,
+        float i, float w, float W) {
+    this->mass = mass;
+    orbit = new Orbit(center, this, e, a, M0, i, w, W);
 }
 
 SpaceBody::~SpaceBody() {

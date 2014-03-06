@@ -15,7 +15,8 @@ class SpaceBody;
 class SpaceBody {
 public:
     SpaceBody();
-	SpaceBody(double mass, SpaceBody *center);
+	SpaceBody(double mass, SpaceBody *center, float e, long long a, float M0=0,
+            float i=0, float w=0, float W=0);
 	virtual ~SpaceBody();
 
 	double getMass() const;

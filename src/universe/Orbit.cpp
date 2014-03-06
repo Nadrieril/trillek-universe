@@ -7,7 +7,7 @@
 
 #include "Orbit.h"
 
-Orbit::Orbit(SpaceBody *center, SpaceBody *satellite, float e, long a, float M0,
+Orbit::Orbit(SpaceBody *center, SpaceBody *satellite, float e, long long a, float M0,
         float i, float w, float W) {
     this->center = center;
     this->e = e;
