@@ -5,37 +5,27 @@
  *      Author: nadrieril
  */
 
-struct Position3D;
-class Orbit;
-
 #ifndef ORBIT_H_
 #define ORBIT_H_
-#define G 6.67384e-11
 
 #include <cmath>
-#include "SpaceBody.h"
-
-
-struct Position3D {
-	long long x;
-	long long y;
-	long long z;
-};
+#include "Vector3D.h"
+#define G 6.67384e-11
 
 
 class Orbit {
 public:
     Orbit();
-    Orbit(SpaceBody* center, SpaceBody* satellite, float e, long long a, float M0,
+    Orbit(double centerMass, double satelliteMass, float e, double a, float M0,
             float i, float w, float W);
     virtual ~Orbit();
 
-    /** Calculates the position of the satellite at a given time
+    /** Calculates the position of the satellite relative to the central body at a given time
      *
 	 * @param time
 	 * @return
 	 */
-	Position3D getSatellitePosition(long time) const;
+	Vector3D getSatellitePosition(long time) const;
 
 protected:
 	/** Solves Kepler equation for E given M
@@ -48,9 +38,8 @@ protected:
 	 */
 	double solveForE(double M) const;
 
-	SpaceBody *center;
 	float e;
-	long long a;
+	double a;
 	double n;
 	float M0;
 	float i;

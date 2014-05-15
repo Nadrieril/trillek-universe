@@ -11,10 +11,11 @@ SpaceBody::SpaceBody() {
     mass=0;
 }
 
-SpaceBody::SpaceBody(double mass, SpaceBody *center, float e, long long a, float M0,
+SpaceBody::SpaceBody(double mass, SpaceBody *orbitCenter, float e, double a, float M0,
         float i, float w, float W) {
     this->mass = mass;
-    orbit = new Orbit(center, this, e, a, M0, i, w, W);
+    this->orbitCenter=orbitCenter;
+    orbit = new Orbit(orbitCenter->getMass(), getMass(), e, a, M0, i, w, W);
 }
 
 SpaceBody::~SpaceBody() {
@@ -25,7 +26,6 @@ double SpaceBody::getMass() const {
 	return mass;
 }
 
-
-Position3D SpaceBody::getPosition(long time) const {
-    return orbit->getSatellitePosition(time);
+Vector3D SpaceBody::getPosition(long time) const {
+    return orbit->getSatellitePosition(time) + orbitCenter->getPosition(time);
 }

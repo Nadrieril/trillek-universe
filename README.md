@@ -9,7 +9,7 @@ Context:
  - All objects are points
  - Space is centered around a sun
  - Coordinates are (long long?) integer multiples of some length unit (I assume cm is precise enough)
- - There will be enough planets/moons/heavy bodies to need an efficient n-body algorithm
+ - There will be enough planets/moons/heavy bodies to justify an efficient (restricted) n-body algorithm
  - The masses of smaller bodies (asteroids, ships...) are negligible
 
 Goals:

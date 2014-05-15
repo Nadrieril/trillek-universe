@@ -12,7 +12,7 @@ class Universe;
 
 #include <vector>
 #include <memory>
-#include "SpaceBody.h"
+#include "bodies/Body.h"
 
 
 class Universe {
@@ -20,12 +20,16 @@ public:
     Universe();
     virtual ~Universe();
 
-    std::vector<std::shared_ptr<SpaceBody>> getBodies() const;
-    void addBody(SpaceBody *b);
-    void removeBody(SpaceBody *b);
+    std::vector<std::shared_ptr<Body>> getBodies() const;
+    void addBody(Body *b);
+    void removeBody(Body *b);
+
+    void evolve(double dt);
 
 protected:
-    std::vector<std::shared_ptr<SpaceBody>> bodies;
+	std::function<Vector3D ()> acc(std::shared_ptr<Body> b) const;
+
+    std::vector<std::shared_ptr<Body>> bodies;
 };
 
 #endif /* UNIVERSE_H_ */

@@ -12,7 +12,8 @@ public:
     Sun(double mass);
     virtual ~Sun();
 
-    virtual Position3D getPosition(long time) const;
+    virtual Vector3D getPosition(long time) const;
+    virtual bool onOrbit() const;
 };
 
 inline Sun::Sun(double mass) {
@@ -22,11 +23,10 @@ inline Sun::Sun(double mass) {
 inline Sun::~Sun() {
 }
 
-inline Position3D Sun::getPosition(long time) const {
-    Position3D p;
-    p.x=512;
-    p.y=384;
-    p.z=0;
-    return p;
+inline Vector3D Sun::getPosition(long time) const {
+    return Vector3D(512, 384, 0);
 }
 
+inline bool Sun::onOrbit() const {
+    return false;
+}
